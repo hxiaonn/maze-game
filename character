@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int occurrence(char a[],char b[])
+{
+    int wlen=strlen(b);
+	int slen=strlen(a);
+
+	int count=0;
+
+	for(int i=0;i<=slen-wlen;i++)
+	{
+    	char *tempw=new char[wlen+1];
+    
+		tempw[wlen]='\0';
+		for(int j=0;j<wlen;j++)
+		{
+			tempw[j]=a[i+j];
+		}
+		if(strcmp(tempw,b)==0)
+		{
+			count++;
+		}
+	
+	}
+
+	return count;
+}
+
+
+
+int main()
+{
+	char sentence[1000],word[10];
+	printf("Input any English sentence and a string to get the number of occurrences of the string in the sentence\n"); 
+	system("pause");
+	system("cls");
+	printf("please input a sentence and a character string\n");
+    gets(sentence);
+	gets(word);
+	strupr(sentence);
+	strupr(word);
+	
+	puts(sentence);
+	puts(word);
+	int x=0;
+ 
+	x=occurrence(sentence,word);
+	printf("The number of times is %d\n",x);
+	return 0;
+}
+
+	
+
+
+
